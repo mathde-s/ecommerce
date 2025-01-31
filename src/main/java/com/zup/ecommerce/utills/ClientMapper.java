@@ -1,0 +1,14 @@
+package com.zup.ecommerce.utills;
+
+import com.zup.ecommerce.DTOs.ClientRequestDTO;
+import com.zup.ecommerce.DTOs.ClientResponseDTO;
+import com.zup.ecommerce.models.Client;
+
+public class ClientMapper {
+    public static ClientResponseDTO toResponseDTO(Client client){
+        return new ClientResponseDTO();
+    }
+    public static Client toEntity(ClientRequestDTO requestDTO){
+        return new Client();
+    }
+}
