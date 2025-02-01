@@ -17,4 +17,8 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleGenericException(Exception ex) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Um erro inesperado aconteceu: " + ex.getMessage());
     }
-}
+
+    @ExceptionHandler(NullArgumentException.class)
+    public ResponseEntity<String> handleNullArgumentException(NullArgumentException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+    }}
