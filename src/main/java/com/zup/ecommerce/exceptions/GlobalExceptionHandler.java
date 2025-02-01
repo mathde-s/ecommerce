@@ -21,4 +21,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(NullArgumentException.class)
     public ResponseEntity<String> handleNullArgumentException(NullArgumentException ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
-    }}
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<String> handleResourceNotFoundException(ResourceNotFoundException ex){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+    }
+}
