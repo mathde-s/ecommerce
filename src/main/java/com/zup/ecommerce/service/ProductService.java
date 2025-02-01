@@ -2,6 +2,8 @@ package com.zup.ecommerce.service;
 
 import com.zup.ecommerce.DTOs.ProductRequestDTO;
 import com.zup.ecommerce.DTOs.ProductResponseDTO;
+import com.zup.ecommerce.exceptions.ExistingEntityException;
+import com.zup.ecommerce.exceptions.NullArgumentException;
 import com.zup.ecommerce.models.Product;
 import com.zup.ecommerce.repository.ProductRepository;
 import com.zup.ecommerce.utills.ProductMapper;
@@ -34,5 +36,12 @@ public class ProductService {
         return productRepository.findAll().stream()
                 .map(ProductMapper::toResponseDTO)
                 .collect(Collectors.toList());
+    }
+
+    public void deleteProduct(String name) {
+        if (!productRepository.existsByName(name)) {
+            throw new NullArgumentException("Produto não existe.");
+        }
+        productRepository.deleteByName(name);
     }
 }
