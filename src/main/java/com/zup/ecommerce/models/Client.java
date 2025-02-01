@@ -1,9 +1,6 @@
 package com.zup.ecommerce.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Client {
@@ -15,7 +12,6 @@ public class Client {
     private String email;
 
     public Client() {}
-
 
     public Client(String name, String cpf, String email) {
         this.name = name;
@@ -45,5 +41,13 @@ public class Client {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
