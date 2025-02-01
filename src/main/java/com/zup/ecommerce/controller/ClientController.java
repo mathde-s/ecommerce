@@ -29,7 +29,7 @@ public class ClientController {
         return ResponseEntity.ok(clientService.getClientByCpf(cpf));
     }
 
-    @PutMapping("/clientes/{cpf}")
+    @PutMapping("/{cpf}")
     public ResponseEntity<ClientResponseDTO> updateProduct(@PathVariable String cpf, @RequestBody @Valid ClientRequestDTO clientRequestDTO){
         return ResponseEntity.ok(clientService.updateClient(cpf, clientRequestDTO));
     }
