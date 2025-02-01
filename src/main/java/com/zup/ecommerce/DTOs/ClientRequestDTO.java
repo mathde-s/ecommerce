@@ -37,7 +37,7 @@ public class ClientRequestDTO {
         return cpf;
     }
 
-    public void setCpf(String CPF) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
