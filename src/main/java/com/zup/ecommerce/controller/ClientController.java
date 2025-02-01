@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 public class ClientController {
 
     @Autowired
-    private ClientService clienteService;
+    private ClientService clientService;
 
     @PostMapping
     public ResponseEntity<ClientResponseDTO> createClient(@Valid @RequestBody ClientRequestDTO clientRequestDTO) {
