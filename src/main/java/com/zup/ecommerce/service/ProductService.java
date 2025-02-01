@@ -23,8 +23,11 @@ public class ProductService {
         return ProductMapper.toResponseDTO(productSaved);
     }
     public void validCreate(Product product){
-//        if (product.getName())
-            throw new RuntimeException("o produto já existe!");
+        if (product.getName() == null || product.getName().isEmpty()) {
+            throw new NullArgumentException("O nome do produto não pode ser nulo ou vazio.");
+        }
+        if (productRepository.existsByName(product.getName()))
+            throw new ExistingEntityException("o produto já existe!");
     }
 
     public List<ProductResponseDTO> getAllProducts() {
