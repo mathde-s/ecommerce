@@ -26,7 +26,7 @@ public class ClientController {
     }
 
     @GetMapping("/{cpf}")
-    public ResponseEntity<ClientResponseDTO> getClientByCPF(@PathVariable @CPF(message = "CPF inválido") String cpf) {
-        return ResponseEntity.ok(clienteService.getClientByCpf(cpf));
+    public ResponseEntity<ClientResponseDTO> getClientByCpf(@PathVariable @CPF(message = "CPF inválido") String cpf) {
+        return ResponseEntity.ok(clientService.getClientByCpf(cpf));
     }
 }
