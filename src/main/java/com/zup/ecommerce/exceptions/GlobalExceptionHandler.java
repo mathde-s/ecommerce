@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(ExistingClientException.class)
-    public ResponseEntity<String> handleExistingClientException(ExistingClientException ex) {
+    @ExceptionHandler(ExistingEntityException.class)
+    public ResponseEntity<String> handleExistingClientException(ExistingEntityException ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
     }
 
