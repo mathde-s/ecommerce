@@ -32,4 +32,9 @@ public class ClientService {
         return ClientMapper.toResponseDTO(client);
     }
 
+    public ClientResponseDTO updateClient(String cpf, ClientRequestDTO requestDTO){
+        Client clientExists = clientRepository.findByCpf(cpf);
+        Client clientSaved = clientRepository.save(clientExists);
+        return ClientMapper.toResponseDTO(clientSaved);
+    }
 }
