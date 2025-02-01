@@ -4,7 +4,6 @@ import com.zup.ecommerce.DTOs.ClientRequestDTO;
 import com.zup.ecommerce.DTOs.ClientResponseDTO;
 import com.zup.ecommerce.service.ClientService;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Email;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,5 +27,10 @@ public class ClientController {
     @GetMapping("/{cpf}")
     public ResponseEntity<ClientResponseDTO> getClientByCpf(@PathVariable @CPF(message = "CPF inválido") String cpf) {
         return ResponseEntity.ok(clientService.getClientByCpf(cpf));
+    }
+
+    @PutMapping("/clientes/{cpf}")
+    public ResponseEntity<ClientResponseDTO> updateProduct(@PathVariable String cpf, @RequestBody @Valid ClientRequestDTO clientRequestDTO){
+        return ResponseEntity.ok(clientService.updateClient(cpf, clientRequestDTO));
     }
 }
