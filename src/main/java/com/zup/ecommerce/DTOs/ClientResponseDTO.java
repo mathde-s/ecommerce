@@ -8,10 +8,11 @@ public class ClientResponseDTO {
 
     public ClientResponseDTO(){}
 
-    public ClientResponseDTO(String name, String cpf, String email) {
+    public ClientResponseDTO(String name, String cpf, String email, Long id) {
         this.name = name;
         this.cpf = cpf;
         this.email = email;
+        this.id = id;
     }
 
     public String getName() {
