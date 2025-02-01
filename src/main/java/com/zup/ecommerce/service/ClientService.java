@@ -2,7 +2,7 @@ package com.zup.ecommerce.service;
 
 import com.zup.ecommerce.DTOs.ClientRequestDTO;
 import com.zup.ecommerce.DTOs.ClientResponseDTO;
-import com.zup.ecommerce.exceptions.ExistingClientException;
+import com.zup.ecommerce.exceptions.ExistingEntityException;
 import com.zup.ecommerce.exceptions.NullArgumentException;
 import com.zup.ecommerce.models.Client;
 import com.zup.ecommerce.repository.ClientRepository;
@@ -20,9 +20,9 @@ public class ClientService {
         Client client = ClientMapper.toEntity(clientRequestDTO);
 
         if(clientRepository.existsByCpf(client.getCpf()))
-            throw new ExistingClientException("o CPF: "+client.getCpf()+" já está cadastrado a um cliente");
+            throw new ExistingEntityException("o CPF: "+client.getCpf()+" já está cadastrado a um cliente");
         if(clientRepository.existsByEmail(client.getEmail()))
-            throw new ExistingClientException("o email: "+client.getEmail()+" já esta cadastrado a um cliente");
+            throw new ExistingEntityException("o email: "+client.getEmail()+" já esta cadastrado a um cliente");
 
         Client clientsSaved = clientRepository.save(client);
         return ClientMapper.toResponseDTO(clientsSaved);
