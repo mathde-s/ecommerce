@@ -1,20 +1,18 @@
 package com.zup.ecommerce.DTOs;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.br.CPF;
 
 public class ClientRequestDTO {
-    @NotNull(message = "o nome não pode ser nulo")
+
+    @NotBlank(message = "o nome não pode ser nulo")
     private String name;
 
     @CPF(message = "o CPF deve ser valido")
-    @Column(unique = true, name = "email")
     private String cpf;
 
     @Email(message = "o email deve ser válido")
-    @Column(unique = true, name = "email")
     private String email;
 
     public ClientRequestDTO() {}
