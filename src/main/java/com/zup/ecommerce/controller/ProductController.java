@@ -2,10 +2,10 @@ package com.zup.ecommerce.controller;
 
 import com.zup.ecommerce.DTOs.ProductRequestDTO;
 import com.zup.ecommerce.DTOs.ProductResponseDTO;
-import com.zup.ecommerce.models.Product;
 import com.zup.ecommerce.service.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +27,6 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<ProductResponseDTO> createProduct(@RequestBody @Valid ProductRequestDTO product) {
-        return ResponseEntity.ok(productService.createProduct(product));
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.createProduct(product));
     }
 }
