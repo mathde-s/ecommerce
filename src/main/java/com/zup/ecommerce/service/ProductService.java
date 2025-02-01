@@ -3,7 +3,7 @@ package com.zup.ecommerce.service;
 import com.zup.ecommerce.DTOs.ProductRequestDTO;
 import com.zup.ecommerce.DTOs.ProductResponseDTO;
 import com.zup.ecommerce.exceptions.ExistingEntityException;
-import com.zup.ecommerce.exceptions.NullArgumentException;
+import com.zup.ecommerce.exceptions.ResourceNotFoundException;
 import com.zup.ecommerce.models.Product;
 import com.zup.ecommerce.repository.ProductRepository;
 import com.zup.ecommerce.utills.ProductMapper;
@@ -37,7 +37,7 @@ public class ProductService {
 
     public void deleteProduct(String name) {
         if (!productRepository.existsByName(name)) {
-            throw new NullArgumentException("Produto não existe.");
+            throw new ResourceNotFoundException("Produto não existe.");
         }
         productRepository.deleteByName(name);
     }
