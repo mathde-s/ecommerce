@@ -13,10 +13,6 @@ public class Product {
     private String name;
     private double price;
     private int quantity;
-    /*
-    validação:
-    if(name.exists) thow new ArgumentExistisException
-     */
 
     public Product() {}
 
@@ -48,5 +44,13 @@ public class Product {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
