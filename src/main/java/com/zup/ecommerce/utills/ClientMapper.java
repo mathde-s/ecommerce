@@ -6,7 +6,11 @@ import com.zup.ecommerce.models.Client;
 
 public class ClientMapper {
     public static ClientResponseDTO toResponseDTO(Client client){
-        return new ClientResponseDTO();
+        return new ClientResponseDTO(
+                client.getName(),
+                client.getCpf(),
+                client.getEmail(),
+                client.getId());
     }
     public static Client toEntity(ClientRequestDTO requestDTO){
         return new Client();
