@@ -21,8 +21,8 @@ public class ClientController {
     private ClientService clienteService;
 
     @PostMapping
-    public ResponseEntity<ClientResponseDTO> createClient(@Valid @RequestBody ClientRequestDTO client) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(clienteService.createClient(client));
+    public ResponseEntity<ClientResponseDTO> createClient(@Valid @RequestBody ClientRequestDTO clientRequestDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(clientService.createClient(clientRequestDTO));
     }
 
     @GetMapping("/{cpf}")
