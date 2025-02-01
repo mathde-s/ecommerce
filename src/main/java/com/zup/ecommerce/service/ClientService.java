@@ -17,13 +17,8 @@ public class ClientService {
     private ClientRepository clientRepository;
 
     public ClientResponseDTO createClient(ClientRequestDTO clientRequestDTO){
+        validCreate(clientRequestDTO);
         Client client = ClientMapper.toEntity(clientRequestDTO);
-
-        if(clientRepository.existsByCpf(client.getCpf()))
-            throw new ExistingEntityException("o CPF: "+client.getCpf()+" já está cadastrado a um cliente");
-        if(clientRepository.existsByEmail(client.getEmail()))
-            throw new ExistingEntityException("o email: "+client.getEmail()+" já esta cadastrado a um cliente");
-
         Client clientsSaved = clientRepository.save(client);
         return ClientMapper.toResponseDTO(clientsSaved);
     }
