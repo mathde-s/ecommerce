@@ -7,13 +7,10 @@ import com.zup.ecommerce.models.Product;
 
 public class ProductMapper {
     public static ProductResponseDTO toResponseDTO(Product product){
-        return new ProductResponseDTO();
+        return new ProductResponseDTO(product.getName(), product.getPrice(), product.getQuantity(), product.getId());
     }
     public static Product toEntity(ProductRequestDTO requestDTO){
-        return new Product();
-    }
-    public static ProductRequestDTO toRequestDTO(){
-        return new ProductRequestDTO();
+        return new Product(requestDTO.getName(), requestDTO.getPrice(), requestDTO.getQuantity());
     }
 }
 
