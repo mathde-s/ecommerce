@@ -13,6 +13,9 @@ public class ClientMapper {
                 client.getId());
     }
     public static Client toEntity(ClientRequestDTO requestDTO){
-        return new Client();
+        return new Client(
+                requestDTO.getName(),
+                requestDTO.getCpf(),
+                requestDTO.getEmail());
     }
 }
