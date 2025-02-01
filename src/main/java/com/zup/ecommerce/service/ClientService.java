@@ -42,4 +42,13 @@ public class ClientService {
         Client clientSaved = clientRepository.save(clientExists);
         return ClientMapper.toResponseDTO(clientSaved);
     }
+
+    public void validCreate(ClientRequestDTO client){
+        if (client == null)
+            throw new NullArgumentException("Os dados do cliente não podem ser nulos.");
+        if(clientRepository.existsByCpf(client.getCpf()))
+            throw new ExistingEntityException("o CPF: "+client.getCpf()+" já está cadastrado a um cliente");
+        if(clientRepository.existsByEmail(client.getEmail()))
+            throw new ExistingEntityException("o email: "+client.getEmail()+" já esta cadastrado a um cliente");
+    }
 }
