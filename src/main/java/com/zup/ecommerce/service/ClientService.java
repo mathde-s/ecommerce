@@ -46,4 +46,8 @@ public class ClientService {
         if(clientRepository.existsByEmail(client.getEmail()))
             throw new ExistingEntityException("o email: "+client.getEmail()+" já esta cadastrado a um cliente");
     }
+
+    public Client saveClient(Client clientExists) {
+        return clientRepository.save(clientExists);
+    }
 }
