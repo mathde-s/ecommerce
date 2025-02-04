@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface ProductRepository extends JpaRepository<Product, Integer> {
     boolean existsByName(String name);
     void deleteByName(String name);
+    Product findByName(String name);
 }
