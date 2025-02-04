@@ -24,7 +24,13 @@ public class ProductService {
         productRepository.save(productSaved);
         return ProductMapper.toResponseDTO(productSaved);
     }
-    public void validCreate(Product product){
+    private void validCreate(Product product){
+        if (product.getPrice() <= 0) {
+            throw new InvalidArgumentException("O preço deve ser maior que 0.");
+        }
+        if (product.getQuantity() < 0) {
+            throw new InvalidArgumentException("A quantidade deve ser maior ou igual a 0.");
+        }
         if (productRepository.existsByName(product.getName()))
             throw new ExistingEntityException("o produto já existe!");
     }
