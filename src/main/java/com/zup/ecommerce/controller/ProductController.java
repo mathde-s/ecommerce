@@ -31,8 +31,8 @@ public class ProductController {
     }
 
     @DeleteMapping("/{name}")
-    public ResponseEntity<Void> deleteProduct(@PathVariable String name) {
+    public ResponseEntity<String> deleteProduct(@PathVariable String name) {
         productService.deleteProduct(name);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok("Produto deletado com sucesso!");
     }
 }
