@@ -1,5 +1,6 @@
 package com.zup.ecommerce.DTOs;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -7,6 +8,7 @@ import jakarta.validation.constraints.PositiveOrZero;
 public class ProductRequestDTO {
 
     @NotBlank(message = "o nome não pode ser nulo")
+    @Column(unique = true)
     private String name;
 
     @PositiveOrZero(message = "o preço deve ser maior ou igual a zero")
