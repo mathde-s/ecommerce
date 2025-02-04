@@ -8,9 +8,9 @@ import com.zup.ecommerce.exceptions.ResourceNotFoundException;
 import com.zup.ecommerce.models.Product;
 import com.zup.ecommerce.repository.ProductRepository;
 import com.zup.ecommerce.utills.ProductMapper;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
