@@ -18,4 +18,10 @@ public class ClientMapper {
                 requestDTO.getCpf(),
                 requestDTO.getEmail());
     }
+    public static Client requestToEntity(ClientResponseDTO responseDTO){
+        return new Client(
+                responseDTO.getName(),
+                responseDTO.getCpf(),
+                responseDTO.getEmail());
+    }
 }
