@@ -3,10 +3,12 @@ package com.zup.ecommerce.service;
 import com.zup.ecommerce.DTOs.ProductRequestDTO;
 import com.zup.ecommerce.DTOs.ProductResponseDTO;
 import com.zup.ecommerce.exceptions.ExistingEntityException;
+import com.zup.ecommerce.exceptions.InvalidArgumentException;
 import com.zup.ecommerce.exceptions.ResourceNotFoundException;
 import com.zup.ecommerce.models.Product;
 import com.zup.ecommerce.repository.ProductRepository;
 import com.zup.ecommerce.utills.ProductMapper;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +43,7 @@ public class ProductService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public void deleteProduct(String name) {
         if (!productRepository.existsByName(name)) {
             throw new ResourceNotFoundException("Produto não existe.");
