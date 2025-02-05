@@ -54,8 +54,7 @@ public class BuyService {
         if (!missingProducts.isEmpty())
             throw new InvalidArgumentException("Produto em falta: " + String.join(", ", missingProducts ));
         productRepository.saveAll(availableProducts);
-        Client clientSaved = clientService.saveClient(client);
-        Buy purchase = createBuy(clientSaved,availableProducts);
+        Buy purchase = createBuy(client,availableProducts);
 
         return buyRepository.save(purchase);
     }
