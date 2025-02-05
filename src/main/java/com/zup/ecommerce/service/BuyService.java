@@ -3,6 +3,7 @@ package com.zup.ecommerce.service;
 import com.zup.ecommerce.DTOs.BuyRequestDTO;
 import com.zup.ecommerce.DTOs.ClientResponseDTO;
 import com.zup.ecommerce.exceptions.InvalidArgumentException;
+import com.zup.ecommerce.exceptions.ResourceNotFoundException;
 import com.zup.ecommerce.models.Buy;
 import com.zup.ecommerce.models.Client;
 import com.zup.ecommerce.models.Product;
