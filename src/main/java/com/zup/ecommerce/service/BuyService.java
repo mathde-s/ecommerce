@@ -29,6 +29,10 @@ public class BuyService {
 
     @Transactional
     public Buy processBuy(BuyRequestDTO buy) {
+
+        if (buy.getProducts() == null || buy.getProducts().isEmpty()) {
+            throw new InvalidArgumentException("Nenhum produto foi informado para a compra.");
+        }
         ClientResponseDTO clientResponse = clientService.getClientByCpf(buy.getCpf());
         Client client = ClientMapper.requestToEntity(clientResponse);
 
