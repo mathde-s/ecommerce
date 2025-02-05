@@ -41,6 +41,9 @@ public class BuyService {
 
         for (Product requestProduct : buy.getProducts()) {
             Product product = productRepository.findByName(requestProduct.getName());
+            if (product == null) {
+                throw new ResourceNotFoundException("Produto não encontrado: " + requestProduct.getName());
+            }
             if (product.getQuantity() <= 0) {
                 missingProducts.add(requestProduct.getName());
             } else {
